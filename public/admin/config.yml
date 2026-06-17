@@ -2,10 +2,11 @@ backend:
   name: github
   repo: larissa-ettlin/portfolio
   branch: main
-  local_backend: false
-
-media_folder: "public/images"
-public_folder: "/images"
+  auth_scope: repo
+  client_id: Ov23liy3pypWf9e5DoMS
+  
+media_folder: "public/uploads"
+public_folder: "/uploads"
 
 collections:
   - name: "projects"
