@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: larissa-ettlin/portfolio
+  repo: Larissa-Ettlin/portfolio
   branch: main
 
 media_folder: "public/images"
