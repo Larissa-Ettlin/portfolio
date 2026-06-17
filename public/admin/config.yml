@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: larissa-ettlin/portfolio
   branch: main
 
 media_folder: "public/images"
