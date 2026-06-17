@@ -6,6 +6,25 @@ backend:
   identity_url: https://auth.decapbridge.com/sites/e6222ea6-6479-40ec-822f-7a1da5ca4d90
   gateway_url: https://gateway.decapbridge.com
 
+  media_folder: "public/uploads"
+  public_folder: "/uploads"
+  media_library:
+  name: uploadcare
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "src/content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "year", label: "Year", widget: "number" }
+      - { name: "tags", label: "Tags", widget: "list" }
+      - { name: "cover", label: "Cover Image", widget: "image" }
+      - { name: "draft", label: "Draft", widget: "boolean", default: false }
+      - { name: "body", label: "Content", widget: "markdown" }
+
   # See who did what (optional)
   commit_messages:
     create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
