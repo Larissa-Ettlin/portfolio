@@ -4,7 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
 
 export default defineConfig({
-  site: "https://polaris-six-rust.vercel.app",
+  site: "https://Larissa-Ettlin.github.io",
+  base: '/portfolio',
   integrations: [mdx(), react()],
   vite: {
     plugins: [tailwindcss()],
