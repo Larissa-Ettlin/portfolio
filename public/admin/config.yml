@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: larissa-ettlin/portfolio
+  repo: Larissa-Ettlin/portfolio
   branch: main
   auth_scope: repo
   client_id: Ov23liy3pypWf9e5DoMS
