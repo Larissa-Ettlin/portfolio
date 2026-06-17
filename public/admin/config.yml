@@ -2,8 +2,6 @@ backend:
   name: github
   repo: Larissa-Ettlin/portfolio
   branch: main
-  base_url: https://github.com
-  auth_endpoint: login/oauth/authorize
   auth_scope: repo
   client_id: Ov23liy3pypWf9e5DoMS
   
