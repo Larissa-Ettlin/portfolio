@@ -2,6 +2,7 @@ backend:
   name: github
   repo: Larissa-Ettlin/portfolio
   branch: main
+  auth_type: implicit
   auth_scope: repo
   client_id: Ov23liy3pypWf9e5DoMS
   
