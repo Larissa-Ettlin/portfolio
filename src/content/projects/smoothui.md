@@ -2,10 +2,10 @@
 name: "SmoothUI"
 description: "React UI components with TailwindCSS & Motion animations for beautiful websites and apps."
 date: 2024-08-15
-cover: "./images/smoothui.png"
+cover: "/uploads/smoothui.png"
 coverAlt: "SmoothUI component showcase"
 logo:
-  image: "./images/logo-smoothui.png"
+  image: "/uploads/logo-smoothui.png"
   fallback:
     text: "S"
     bgColor: "bg-pink-500"

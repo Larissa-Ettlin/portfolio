@@ -2,10 +2,10 @@
 name: "AdventJS"
 description: "A JavaScript coding challenge platform that helps developers improve their skills through daily programming exercises during the advent season."
 date: 2024-12-01
-cover: "./images/adventjs.png"
+cover: "/uploads/adventjs.png"
 coverAlt: "AdventJS coding challenges platform"
 logo:
-  image: "./images/logo-adventjs.png"
+  image: "/uploads/logo-adventjs.png"
   fallback:
     text: "A"
     bgColor: "bg-yellow-500"

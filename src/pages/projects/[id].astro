@@ -127,10 +127,7 @@ const githubLink = extractGitHubLink(contentText);
   description={project.description}
   keywords={project.tags?.join(", ") || "web development, case study, project"}
   type="article"
-  image={getAbsoluteUrl(
-    project.cover.src,
-    Astro.site?.href || siteConfig.site.url
-  )}
+  image={getAbsoluteUrl(project.cover, Astro.site?.href || siteConfig.site.url)}
   publishedTime={project.date}
   section="Projects"
   tags={project.tags || []}
@@ -165,15 +162,15 @@ const githubLink = extractGitHubLink(contentText);
         <X />
         <div class="w-8 h-8">
           <img
-          src={project.cover}
-          alt={project.coverAlt}
-          width="1200"
-          height="675"
-          class="w-full aspect-video object-cover rounded-xl mb-12"
-          loading="eager"
-          decoding="sync"
-          fetchpriority="high"
-/>
+            src={project.cover}
+            alt={project.coverAlt}
+            width="1200"
+            height="675"
+            class="w-full aspect-video object-cover rounded-xl mb-12"
+            loading="eager"
+            decoding="sync"
+            fetchpriority="high"
+          />
         </div>
       </div>
 
@@ -240,13 +237,12 @@ const githubLink = extractGitHubLink(contentText);
   </Fragment>
 
   <Fragment slot="right-content">
-    <Image
+    <img
       src={project.cover}
       alt={project.coverAlt}
       width="1200"
       height="675"
       class="w-full aspect-video object-cover rounded-xl mb-12"
-      transition:name={`project-${entry.id}`}
       loading="eager"
       decoding="sync"
       fetchpriority="high"
@@ -275,26 +271,27 @@ const githubLink = extractGitHubLink(contentText);
                   class="block rounded-lg overflow-hidden hover:opacity-95 transition-opacity"
                 >
                   <div class="aspect-[16/10] relative">
-                   <img
-                  src={project.data.cover}
-                  alt={project.data.coverAlt}
-                  width="400"
-                  height="250"
-                  class="w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
+                    <img
+                      src={project.data.cover}
+                      alt={project.data.coverAlt}
+                      width="400"
+                      height="250"
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div class="absolute bottom-3 left-3 items-center gap-1.5 flex text-foreground opacity-0 hover:opacity-100 transition-opacity">
                       <div class="shrink-0">
-                       <img
-                        src={project.logo.image}
-                        alt={project.name}
-                        width="32"
-                        height="32"
-                        class="rounded-full object-cover w-full h-full"
-                        loading="eager"
-                        decoding="sync"
-                    />
+                        <img
+                          src={project.data.logo.image}
+                          alt={project.data.name}
+                          width="32"
+                          height="32"
+                          class="rounded-full object-cover w-full h-full"
+                          loading="eager"
+                          decoding="sync"
+                          onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')"
+                        />
                         <div
                           class={`w-5 h-5 ${project.data.logo.fallback.bgColor} rounded-full hidden items-center justify-center text-white text-xs`}
                         >

@@ -2,10 +2,10 @@
 name: "SorteoRayo"
 description: "A car giveaway platform for TheGrefg's community, featuring a modern design and seamless user experience."
 date: 2025-01-01
-cover: "./images/sorteorayo.png"
+cover: "/uploads/sorteorayo.png"
 coverAlt: "SorteoRayo car giveaway platform"
 logo:
-  image: "./images/logo-sorteorayo.png"
+  image: "/uploads/logo-sorteorayo.png"
   fallback:
     text: "S"
     bgColor: "bg-green-500"

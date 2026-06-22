@@ -2,10 +2,10 @@
 name: "LawPhobia"
 description: "Contracts shouldn't be scary. With LawPhobia, you can instantly analyze your contract using AI — no legalese, no confusion."
 date: 2025-08-15
-cover: "./images/lawphobia.png"
+cover: "/uploads/lawphobia.png"
 coverAlt: "LawPhobia AI contract analysis platform"
 logo:
-  image: "./images/logo-lawphobia.png"
+  image: "/uploads/logo-lawphobia.png"
   fallback:
     text: "L"
     bgColor: "bg-purple-500"

@@ -3,9 +3,18 @@ import { glob } from "astro/loaders";
 
 const fallbackDate = new Date("1970-01-01");
 
+function normalizeProjectImagePath(path?: string) {
+  if (!path) return path;
+  if (path.startsWith("/uploads/")) return path;
+  if (path.startsWith("./images/")) {
+    return `/uploads/${path.slice("./images/".length)}`;
+  }
+  return path;
+}
+
 const projects = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
-  schema: ({ image }) =>
+  schema: () =>
     z
       .object({
         // Pflichtfelder
@@ -102,15 +111,19 @@ const projects = defineCollection({
           ...project,
 
           description: project.description || "",
+          cover: normalizeProjectImagePath(project.cover) || "",
           coverAlt: project.coverAlt || project.name,
           tags: project.tags || [],
           draft: project.draft ?? false,
 
           logo: {
-          image: project.logo?.image ?? project.cover,
-          fallback: {
-            text: fallbackLetter.slice(0, 1),
-            bgColor: project.logo?.fallback?.bgColor || "bg-neutral-500",
+            image:
+              normalizeProjectImagePath(project.logo?.image) ||
+              normalizeProjectImagePath(project.cover) ||
+              "",
+            fallback: {
+              text: fallbackLetter.slice(0, 1),
+              bgColor: project.logo?.fallback?.bgColor || "bg-neutral-500",
             },
           },
 

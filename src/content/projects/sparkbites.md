@@ -2,10 +2,10 @@
 name: "SparkBites"
 description: "A curated collection of beautiful websites to inspire your next project. Explore, learn, and create."
 date: 2024-06-15
-cover: "./images/sparkbites.png"
+cover: "/uploads/sparkbites.png"
 coverAlt: "SparkBites web design inspiration directory"
 logo:
-  image: "./images/logo-sparkbites.png"
+  image: "/uploads/logo-sparkbites.png"
   fallback:
     text: "S"
     bgColor: "bg-amber-500"
