@@ -10,7 +10,7 @@ const projects = defineCollection({
       .object({
         // Pflichtfelder
         name: z.string(),
-        cover: image(),
+        cover: z.string(),
 
         // Optionale Felder
         description: z.string().optional().default(""),
@@ -46,7 +46,7 @@ const projects = defineCollection({
           },
           z
             .object({
-              image: image().optional(),
+              image: z.string().optional(),
               fallback: z
                 .object({
                   text: z.string().optional().default(""),
@@ -107,10 +107,10 @@ const projects = defineCollection({
           draft: project.draft ?? false,
 
           logo: {
-            image: project.logo?.image ?? project.cover,
-            fallback: {
-              text: fallbackLetter.slice(0, 1),
-              bgColor: project.logo?.fallback?.bgColor || "bg-neutral-500",
+          image: project.logo?.image ?? project.cover,
+          fallback: {
+            text: fallbackLetter.slice(0, 1),
+            bgColor: project.logo?.fallback?.bgColor || "bg-neutral-500",
             },
           },
 
