@@ -26,29 +26,116 @@ site_url: https://Larissa-Ettlin.github.io/portfolio
 collections:
   - name: "projects"
     label: "Projects"
-
+    label_singular: "Project"
     folder: "src/content/projects"
-
     create: true
+    identifier_field: "name"
     slug: "{{slug}}"
 
     fields:
-      - { name: "name", label: "Project Name", widget: "string" }
+      - label: "Project Name"
+        name: "name"
+        widget: "string"
 
-      - { name: "description", label: "Description", widget: "text" }
+      - label: "Description"
+        name: "description"
+        widget: "text"
 
-      - { name: "date", label: "Date", widget: "datetime" }
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
 
-      - { name: "cover", label: "Cover Image", widget: "image" }
+      - label: "Cover Image"
+        name: "cover"
+        widget: "image"
 
-      - { name: "coverAlt", label: "Cover Alt Text", widget: "string" }
+      - label: "Cover Alt Text"
+        name: "coverAlt"
+        widget: "string"
 
-      - { name: "logo", label: "Logo", widget: "image" }
+      - label: "Logo"
+        name: "logo"
+        widget: "object"
+        fields:
+          - label: "Logo Image"
+            name: "image"
+            widget: "image"
 
-      - { name: "caseStudy", label: "Case Study", widget: "boolean", default: false }
+          - label: "Fallback"
+            name: "fallback"
+            widget: "object"
+            fields:
+              - label: "Fallback Letter"
+                name: "text"
+                widget: "string"
+                default: "P"
+                pattern: ["^.$", "Please enter exactly one character."]
 
-      - { name: "tags", label: "Tags", widget: "list" }
+              - label: "Fallback Background Color"
+                name: "bgColor"
+                widget: "select"
+                default: "bg-neutral-500"
+                options:
+                  - "bg-neutral-500"
+                  - "bg-stone-500"
+                  - "bg-zinc-500"
+                  - "bg-slate-500"
+                  - "bg-red-500"
+                  - "bg-orange-500"
+                  - "bg-yellow-500"
+                  - "bg-green-500"
+                  - "bg-blue-500"
+                  - "bg-purple-500"
+                  - "bg-pink-500"
 
-      - { name: "draft", label: "Draft", widget: "boolean", default: false }
+      - label: "Case Study"
+        name: "caseStudy"
+        widget: "object"
+        fields:
+          - label: "Challenge"
+            name: "challenge"
+            widget: "text"
 
-      - { name: "body", label: "Content", widget: "markdown" }
+          - label: "Solution"
+            name: "solution"
+            widget: "text"
+
+          - label: "Results"
+            name: "results"
+            widget: "list"
+            field:
+              label: "Result"
+              name: "result"
+              widget: "string"
+
+          - label: "Links"
+            name: "links"
+            widget: "list"
+            required: false
+            fields:
+              - label: "Link Text"
+                name: "text"
+                widget: "string"
+
+              - label: "URL"
+                name: "url"
+                widget: "string"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field:
+          label: "Tag"
+          name: "tag"
+          widget: "string"
+
+      - label: "Draft"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+
+      - label: "Content"
+        name: "body"
+        widget: "markdown"
