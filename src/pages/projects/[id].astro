@@ -164,16 +164,16 @@ const githubLink = extractGitHubLink(contentText);
         </a>
         <X />
         <div class="w-8 h-8">
-          <Image
-            src={project.logo.image}
-            alt={project.name}
-            width="32"
-            height="32"
-            class="rounded-full object-cover w-full h-full"
-            loading="eager"
-            decoding="sync"
-            fetchpriority="high"
-          />
+          <img
+          src={project.cover}
+          alt={project.coverAlt}
+          width="1200"
+          height="675"
+          class="w-full aspect-video object-cover rounded-xl mb-12"
+          loading="eager"
+          decoding="sync"
+          fetchpriority="high"
+/>
         </div>
       </div>
 
@@ -275,27 +275,26 @@ const githubLink = extractGitHubLink(contentText);
                   class="block rounded-lg overflow-hidden hover:opacity-95 transition-opacity"
                 >
                   <div class="aspect-[16/10] relative">
-                    <Image
-                      src={project.data.cover}
-                      alt={project.data.coverAlt}
-                      width="400"
-                      height="250"
-                      class="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                   <img
+                  src={project.data.cover}
+                  alt={project.data.coverAlt}
+                  width="400"
+                  height="250"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
                     <div class="absolute bottom-3 left-3 items-center gap-1.5 flex text-foreground opacity-0 hover:opacity-100 transition-opacity">
                       <div class="shrink-0">
-                        <Image
-                          src={project.data.logo.image}
-                          width="24"
-                          height="24"
-                          alt={`${project.data.name} logo`}
-                          loading="lazy"
-                          decoding="async"
-                          class="w-5 h-5 rounded-full object-cover"
-                          onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')"
-                        />
+                       <img
+                        src={project.logo.image}
+                        alt={project.name}
+                        width="32"
+                        height="32"
+                        class="rounded-full object-cover w-full h-full"
+                        loading="eager"
+                        decoding="sync"
+                    />
                         <div
                           class={`w-5 h-5 ${project.data.logo.fallback.bgColor} rounded-full hidden items-center justify-center text-white text-xs`}
                         >
