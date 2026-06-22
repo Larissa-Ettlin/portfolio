@@ -2,10 +2,10 @@
 name: "Polaris"
 description: "A modern, minimalist portfolio template built with Astro, designed for developers and designers to showcase their projects beautifully."
 date: 2025-09-01
-cover: "./images/polaris.png"
+cover: "/uploads/polaris.png"
 coverAlt: "Polaris portfolio template showcase"
 logo:
-  image: "./images/logo-polaris.png"
+  image: "/uploads/logo-polaris.png"
   fallback:
     text: "P"
     bgColor: "bg-indigo-500"
