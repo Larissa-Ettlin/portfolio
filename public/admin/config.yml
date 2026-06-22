@@ -32,7 +32,7 @@ collections:
     identifier_field: "name"
     slug: "{{slug}}"
 
-            fields:
+    fields:
       - name: "name"
         label: "Project Name"
         widget: "string"
