@@ -32,97 +32,38 @@ collections:
     identifier_field: "name"
     slug: "{{slug}}"
 
-    fields:
-      - label: "Project Name"
-        name: "name"
+        fields:
+      - name: "name"
+        label: "Project Name"
         widget: "string"
+        hint: "Pflichtfeld. Das ist der Titel des Projekts."
 
-      - label: "Description"
-        name: "description"
-        widget: "text"
-
-      - label: "Date"
-        name: "date"
-        widget: "datetime"
-
-      - label: "Cover Image"
-        name: "cover"
+      - name: "cover"
+        label: "Cover Image"
         widget: "image"
+        hint: "Pflichtfeld. Dieses Bild erscheint in der Projektübersicht."
 
-      - label: "Cover Alt Text"
-        name: "coverAlt"
+      - name: "description"
+        label: "Short Description"
+        widget: "text"
+        required: false
+        default: ""
+
+      - name: "date"
+        label: "Date"
+        widget: "datetime"
+        required: false
+        default: "{{now}}"
+
+      - name: "coverAlt"
+        label: "Cover Alt Text"
         widget: "string"
+        required: false
+        default: ""
+        hint: "Optional. Falls leer, wird automatisch der Projektname verwendet."
 
-      - label: "Logo"
-        name: "logo"
-        widget: "object"
-        fields:
-          - label: "Logo Image"
-            name: "image"
-            widget: "image"
-
-          - label: "Fallback"
-            name: "fallback"
-            widget: "object"
-            fields:
-              - label: "Fallback Letter"
-                name: "text"
-                widget: "string"
-                default: "P"
-                pattern: ["^.$", "Please enter exactly one character."]
-
-              - label: "Fallback Background Color"
-                name: "bgColor"
-                widget: "select"
-                default: "bg-neutral-500"
-                options:
-                  - "bg-neutral-500"
-                  - "bg-stone-500"
-                  - "bg-zinc-500"
-                  - "bg-slate-500"
-                  - "bg-red-500"
-                  - "bg-orange-500"
-                  - "bg-yellow-500"
-                  - "bg-green-500"
-                  - "bg-blue-500"
-                  - "bg-purple-500"
-                  - "bg-pink-500"
-
-      - label: "Case Study"
-        name: "caseStudy"
-        widget: "object"
-        fields:
-          - label: "Challenge"
-            name: "challenge"
-            widget: "text"
-
-          - label: "Solution"
-            name: "solution"
-            widget: "text"
-
-          - label: "Results"
-            name: "results"
-            widget: "list"
-            field:
-              label: "Result"
-              name: "result"
-              widget: "string"
-
-          - label: "Links"
-            name: "links"
-            widget: "list"
-            required: false
-            fields:
-              - label: "Link Text"
-                name: "text"
-                widget: "string"
-
-              - label: "URL"
-                name: "url"
-                widget: "string"
-
-      - label: "Tags"
-        name: "tags"
+      - name: "tags"
+        label: "Tags"
         widget: "list"
         required: false
         field:
@@ -130,12 +71,14 @@ collections:
           name: "tag"
           widget: "string"
 
-      - label: "Draft"
-        name: "draft"
+      - name: "draft"
+        label: "Draft"
         widget: "boolean"
         default: false
         required: false
 
-      - label: "Content"
-        name: "body"
+      - name: "body"
+        label: "Content"
         widget: "markdown"
+        required: false
+        default: ""
