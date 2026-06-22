@@ -6,7 +6,7 @@ backend:
   gateway_url: https://gateway.decapbridge.com
 
 media_folder: "public/uploads"
-public_folder: "/portfolio/uploads"
+public_folder: "/uploads"
 
 media_library:
   name: uploadcare
