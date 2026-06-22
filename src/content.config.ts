@@ -9,6 +9,10 @@ const projects = defineCollection({
       date: z.date(),
       cover: image(),
       coverAlt: z.string(),
+
+      tags: z.array(z.string()).default([]),
+      draft: z.boolean().default(false),
+      
       logo: z.object({
         image: image(),
         fallback: z.object({
