@@ -11,6 +11,8 @@ import { withBasePath } from "@/lib/utils";
 
 const toInternalLink = (url: string) =>
   withBasePath(url, import.meta.env.BASE_URL);
+const hasCompanyLogo = Boolean(company.logo?.trim());
+const companyInitial = company.name?.trim().slice(0, 1).toUpperCase() || "L";
 ---
 
 <Layout
@@ -23,14 +25,22 @@ const toInternalLink = (url: string) =>
   <Fragment slot="left-content">
     <div class="flex w-full flex-col gap-6">
       <div class="flex items-center gap-3">
-        <Image
-          src={company.logo}
-          alt={company.name}
-          width="32"
-          height="32"
-          class="rounded-full"
-          loading="eager"
-        />
+        {
+          hasCompanyLogo ? (
+            <Image
+              src={company.logo}
+              alt={company.name}
+              width="32"
+              height="32"
+              class="rounded-full"
+              loading="eager"
+            />
+          ) : (
+            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-900 text-xs font-semibold text-white">
+              {companyInitial}
+            </div>
+          )
+        }
         <div class="flex items-center gap-2">
           <span class="relative flex size-2">
             <span
