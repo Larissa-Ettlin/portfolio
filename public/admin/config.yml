@@ -22,6 +22,7 @@ commit_messages:
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
 site_url: https://Larissa-Ettlin.github.io/portfolio
+publish_mode: editorial_workflow
 
 collections:
   - name: "projects"
@@ -73,11 +74,11 @@ collections:
           widget: "string"
 
       - name: "draft"
-        label: "Hide on live site"
+        label: "Hide after publish"
         widget: "boolean"
         default: false
         required: false
-        hint: "Wenn aktiviert, bleibt das Projekt im CMS erhalten, wird aber auf der Live-Seite, auf Unterseiten und in der Sitemap ausgeblendet."
+        hint: "Nur verwenden, wenn ein bereits publiziertes Projekt trotz Publish auf der Live-Seite, auf Unterseiten und in der Sitemap ausgeblendet bleiben soll. Fuer normale Entwuerfe nutze den Draft/Publish-Workflow oben."
 
       - name: "body"
         label: "Content"
