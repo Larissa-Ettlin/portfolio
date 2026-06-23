@@ -104,6 +104,10 @@ collections:
                 name: "name"
                 widget: "string"
                 required: false
+              - label: "Browser Tab Title"
+                name: "browserTitle"
+                widget: "string"
+                required: false
 
           - label: "Company"
             name: "company"
@@ -132,6 +136,7 @@ collections:
                 name: "status"
                 widget: "object"
                 fields:
+                  - { label: "Show Status Block", name: "show", widget: "boolean", required: false, default: true }
                   - { label: "Available", name: "available", widget: "boolean", required: false, default: false }
                   - { label: "Status Text", name: "text", widget: "string", required: false }
               - label: "Specialties"
@@ -153,12 +158,14 @@ collections:
                 name: "bookCall"
                 widget: "object"
                 fields:
+                  - { label: "Show Button", name: "enabled", widget: "boolean", required: false, default: true }
                   - { label: "Text", name: "text", widget: "string", required: false }
                   - { label: "URL", name: "url", widget: "string", required: false }
               - label: "Chat"
                 name: "chat"
                 widget: "object"
                 fields:
+                  - { label: "Show Button", name: "enabled", widget: "boolean", required: false, default: true }
                   - { label: "Text", name: "text", widget: "string", required: false }
                   - { label: "URL", name: "url", widget: "string", required: false }
               - { label: "Email", name: "email", widget: "string", required: false }
