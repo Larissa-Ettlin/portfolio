@@ -16,7 +16,7 @@
     "name": "Larissa Ettlin",
     "detailedDescription": "Ich arbeite an der Schnittstelle von Design, digitaler Kommunikation und Markenauftritt. Mein Fokus liegt darauf, visuelle Lösungen zu entwickeln, die nicht nur gut aussehen, sondern auch verständlich, funktional und zielgerichtet sind.\n\nIn meiner Arbeit verbinde ich ein Gespür für Ästhetik mit strategischem Denken und einem hohen Anspruch an Details. Ob Website, Branding, Layout oder digitale Anwendung: Mir ist wichtig, dass Gestaltung eine klare Geschichte erzählt, Orientierung schafft und zur Persönlichkeit eines Projekts oder Unternehmens passt.\n\nIch schätze strukturierte Prozesse, eine offene Zusammenarbeit und Gestaltung, die langfristig funktioniert. Dabei denke ich sowohl an das grosse Ganze als auch an die kleinen Feinheiten, die einen professionellen Auftritt stimmig und überzeugend machen.",
     "status": {
-      "available": true,
+      "available": false,
       "text": "Available for new projects"
     },
     "specialties": [
@@ -34,22 +34,27 @@
     "youtube": "",
     "github": "https://github.com/Larissa-Ettlin",
     "bookCall": {
-      "text": "",
+      "text": "Book Call",
       "url": ""
     },
     "instagram": "",
     "twitter": "",
     "behance": "",
     "medium": "",
-    "figma": "https://figma.com/@educlopez",
+    "figma": "",
     "chat": {
-      "text": "",
+      "text": "Chat",
       "url": ""
     },
     "email": "hello@platzhalter.com",
     "linkedin": ""
   },
-  "experience": [],
+  "experience": [
+    {
+      "company": "StadtHirsch GmbH",
+      "type": "Grafik"
+    }
+  ],
   "projects": {
     "gridColumns": 1
   },
