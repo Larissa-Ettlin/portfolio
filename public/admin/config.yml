@@ -31,6 +31,7 @@ collections:
     create: true
     identifier_field: "name"
     slug: "{{slug}}"
+    summary: "{{name}}"
 
     fields:
       - name: "name"
@@ -72,10 +73,11 @@ collections:
           widget: "string"
 
       - name: "draft"
-        label: "Draft"
+        label: "Hide on live site"
         widget: "boolean"
         default: false
         required: false
+        hint: "Wenn aktiviert, bleibt das Projekt im CMS erhalten, wird aber auf der Live-Seite, auf Unterseiten und in der Sitemap ausgeblendet."
 
       - name: "body"
         label: "Content"

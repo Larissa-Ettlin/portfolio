@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
+import { isVisibleProject } from "@/lib/projects";
 
 export const GET: APIRoute = async ({ site }) => {
   if (!site) {
@@ -7,7 +8,7 @@ export const GET: APIRoute = async ({ site }) => {
   }
 
   // Get all projects from the content collection
-  const projects = await getCollection("projects");
+  const projects = await getCollection("projects", isVisibleProject);
 
   // Create sitemap entries
   const pages = [

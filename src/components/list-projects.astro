@@ -3,8 +3,9 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import siteConfig from "@/config/site.json";
 import { withBasePath } from "@/lib/utils";
+import { isVisibleProject } from "@/lib/projects";
 
-const projects = await getCollection("projects");
+const projects = await getCollection("projects", isVisibleProject);
 type Project = CollectionEntry<"projects">;
 
 // Sort projects by date in descending order (newest first)
