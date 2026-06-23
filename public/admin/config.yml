@@ -82,3 +82,125 @@ collections:
         widget: "markdown"
         required: false
         default: ""
+
+  - name: "site_content"
+    label: "Site Content"
+    editor:
+      preview: false
+    files:
+      - name: "settings"
+        label: "Homepage & Settings"
+        file: "src/config/site.json"
+        fields:
+          - label: "Site"
+            name: "site"
+            widget: "object"
+            fields:
+              - label: "Site URL"
+                name: "url"
+                widget: "string"
+                required: false
+              - label: "Site Name"
+                name: "name"
+                widget: "string"
+                required: false
+
+          - label: "Company"
+            name: "company"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Logo URL", name: "logo", widget: "string", required: false }
+              - { label: "Description", name: "description", widget: "string", required: false }
+              - label: "Long Description"
+                name: "longDescription"
+                widget: "text"
+                required: false
+              - label: "Detailed Description"
+                name: "detailedDescription"
+                widget: "markdown"
+                required: false
+              - label: "Footer Text"
+                name: "footerText"
+                widget: "text"
+                required: false
+              - label: "Copyright"
+                name: "copyright"
+                widget: "string"
+                required: false
+              - label: "Status"
+                name: "status"
+                widget: "object"
+                fields:
+                  - { label: "Available", name: "available", widget: "boolean", required: false, default: false }
+                  - { label: "Status Text", name: "text", widget: "string", required: false }
+              - label: "Specialties"
+                name: "specialties"
+                widget: "list"
+                required: false
+                field: { label: "Specialty", name: "specialty", widget: "string" }
+              - label: "Technologies"
+                name: "technologies"
+                widget: "list"
+                required: false
+                field: { label: "Technology", name: "technology", widget: "string" }
+
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - label: "Book Call"
+                name: "bookCall"
+                widget: "object"
+                fields:
+                  - { label: "Text", name: "text", widget: "string", required: false }
+                  - { label: "URL", name: "url", widget: "string", required: false }
+              - label: "Chat"
+                name: "chat"
+                widget: "object"
+                fields:
+                  - { label: "Text", name: "text", widget: "string", required: false }
+                  - { label: "URL", name: "url", widget: "string", required: false }
+              - { label: "Email", name: "email", widget: "string", required: false }
+              - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+              - { label: "GitHub", name: "github", widget: "string", required: false }
+              - { label: "Dribbble", name: "dribbble", widget: "string", required: false }
+              - { label: "Twitter", name: "twitter", widget: "string", required: false }
+              - { label: "Instagram", name: "instagram", widget: "string", required: false }
+              - { label: "YouTube", name: "youtube", widget: "string", required: false }
+              - { label: "Behance", name: "behance", widget: "string", required: false }
+              - { label: "Figma", name: "figma", widget: "string", required: false }
+              - { label: "Medium", name: "medium", widget: "string", required: false }
+
+          - label: "Experience"
+            name: "experience"
+            widget: "list"
+            required: false
+            summary: "{{fields.company}}"
+            fields:
+              - { label: "Year", name: "year", widget: "string", required: false }
+              - { label: "Company", name: "company", widget: "string", required: false }
+              - { label: "Role", name: "type", widget: "string", required: false }
+              - { label: "Logo URL", name: "logo", widget: "string", required: false }
+              - { label: "Description", name: "description", widget: "text", required: false }
+
+          - label: "Projects Settings"
+            name: "projects"
+            widget: "object"
+            fields:
+              - label: "Grid Columns"
+                name: "gridColumns"
+                widget: "number"
+                value_type: "int"
+                min: 1
+                max: 6
+                required: false
+
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Text", name: "text", widget: "text", required: false }
+              - { label: "Author", name: "author", widget: "string", required: false }
+              - { label: "Company", name: "company", widget: "string", required: false }

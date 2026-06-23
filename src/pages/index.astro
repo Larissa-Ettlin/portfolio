@@ -7,6 +7,10 @@ const { company, contact, experience } = siteConfig;
 
 import { Image } from "astro:assets";
 import { Button } from "@/components/ui/button";
+import { withBasePath } from "@/lib/utils";
+
+const toInternalLink = (url: string) =>
+  withBasePath(url, import.meta.env.BASE_URL);
 ---
 
 <Layout
@@ -52,12 +56,15 @@ import { Button } from "@/components/ui/button";
         <p class="text-sm text-gray-500">{company.longDescription}</p>
       </div>
       <div class="flex items-center gap-3">
-        <a href={contact.bookCall.url}>
+        <a href={toInternalLink(contact.bookCall.url)}>
           <Button>
             {contact.bookCall.text}
           </Button>
         </a>
-        <a href={contact.chat.url} target="_blank">
+        <a
+          href={contact.chat.url.startsWith("/") ? toInternalLink(contact.chat.url) : contact.chat.url}
+          target={contact.chat.url.startsWith("/") ? undefined : "_blank"}
+        >
           <Button variant="outline">
             {contact.chat.text}
           </Button>
