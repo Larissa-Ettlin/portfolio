@@ -5,6 +5,29 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+function isExternalUrl(path: string): boolean {
+  return /^(?:[a-z]+:)?\/\//i.test(path) || path.startsWith("data:");
+}
+
+export function withBasePath(path: string, basePath = "/"): string {
+  if (!path || isExternalUrl(path)) {
+    return path;
+  }
+
+  const normalizedBase =
+    basePath === "/" ? "" : basePath.replace(/\/+$/, "");
+
+  if (path === "/") {
+    return normalizedBase || "/";
+  }
+
+  if (path.startsWith("/")) {
+    return `${normalizedBase}${path}`;
+  }
+
+  return `${normalizedBase}/${path}`;
+}
+
 /**
  * SEO utility functions
  */
@@ -119,7 +142,7 @@ export function extractKeywords(
  */
 export function getAbsoluteUrl(path: string, baseUrl?: string): string {
   // If it's already an absolute URL, return as is
-  if (path.startsWith("http://") || path.startsWith("https://")) {
+  if (isExternalUrl(path)) {
     return path;
   }
 

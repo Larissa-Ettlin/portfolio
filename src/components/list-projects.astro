@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import siteConfig from "@/config/site.json";
+import { withBasePath } from "@/lib/utils";
 
 const projects = await getCollection("projects");
 type Project = CollectionEntry<"projects">;
@@ -72,11 +73,11 @@ const eagerLoadCount = getEagerLoadCount(gridCols);
   {
     sortedProjects.map((project: Project, index: number) => (
       <a
-        href={`/projects/${project.id}`}
+        href={withBasePath(`/projects/${project.id}`, import.meta.env.BASE_URL)}
         class="relative rounded-lg lg:rounded-2xl overflow-hidden hover:opacity-95 transition-opacity aspect-[16/10]"
       >
         <img
-          src={project.data.cover}
+          src={withBasePath(project.data.cover, import.meta.env.BASE_URL)}
           alt={project.data.coverAlt}
           loading={index < eagerLoadCount ? "eager" : "lazy"}
           width="3552"
@@ -87,7 +88,7 @@ const eagerLoadCount = getEagerLoadCount(gridCols);
         <div class="absolute bottom-4 left-4 items-center gap-1.5 lg:flex text-foreground opacity-0 lg:opacity-100">
           <div class="shrink-0">
             <img
-              src={project.data.logo.image}
+              src={withBasePath(project.data.logo.image, import.meta.env.BASE_URL)}
               width="32"
               height="32"
               alt={`${project.data.name} logo`}
