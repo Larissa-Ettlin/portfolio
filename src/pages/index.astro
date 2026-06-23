@@ -3,7 +3,7 @@ import Layout from "@/layouts/layout-principal.astro";
 import siteConfig from "@/config/site.json";
 
 import ListProjects from "@/components/list-projects.astro";
-const { company, contact, experience } = siteConfig;
+const { site, company, contact, experience } = siteConfig;
 
 import { Image } from "astro:assets";
 import { Button } from "@/components/ui/button";
@@ -13,12 +13,25 @@ const toInternalLink = (url: string) =>
   withBasePath(url, import.meta.env.BASE_URL);
 const hasCompanyLogo = Boolean(company.logo?.trim());
 const companyInitial = company.name?.trim().slice(0, 1).toUpperCase() || "L";
+const showStatusBlock = company.status?.show !== false && Boolean(company.status?.text?.trim());
+const showBookCall =
+  contact.bookCall?.enabled !== false &&
+  Boolean(contact.bookCall?.text?.trim()) &&
+  Boolean(contact.bookCall?.url?.trim());
+const showChat =
+  contact.chat?.enabled !== false &&
+  Boolean(contact.chat?.text?.trim()) &&
+  Boolean(contact.chat?.url?.trim());
+const browserTitle =
+  site.browserTitle?.trim() ||
+  site.name?.trim() ||
+  `${company.name} | ${company.description}`;
 ---
 
 <Layout
-  title="Eduardo Calvo | UI Designer & Frontend Developer"
-  description="Passionate UI designer and frontend developer with 8+ years of experience crafting digital experiences that blend aesthetics with functionality."
-  keywords="UI Designer, Frontend Developer, Madrid, React, Vue.js, TypeScript, Tailwind CSS, Figma"
+  title={browserTitle}
+  description={company.longDescription || company.description}
+  keywords={company.specialties.join(", ")}
   type="profile"
   tags={company.specialties}
 >
@@ -41,20 +54,24 @@ const companyInitial = company.name?.trim().slice(0, 1).toUpperCase() || "L";
             </div>
           )
         }
-        <div class="flex items-center gap-2">
-          <span class="relative flex size-2">
-            <span
-              class={`absolute inline-flex h-full w-full animate-ping rounded-full  opacity-75 ${company.status.available ? "bg-emerald-400" : "bg-red-400"}`}
-            ></span>
-            <span
-              class={`relative inline-flex size-2 rounded-full ${company.status.available ? "bg-emerald-500" : "bg-red-500"}`}
-            ></span>
-          </span>
+        {
+          showStatusBlock && (
+            <div class="flex items-center gap-2">
+              <span class="relative flex size-2">
+                <span
+                  class={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${company.status.available ? "bg-emerald-400" : "bg-red-400"}`}
+                ></span>
+                <span
+                  class={`relative inline-flex size-2 rounded-full ${company.status.available ? "bg-emerald-500" : "bg-red-500"}`}
+                ></span>
+              </span>
 
-          <span class="text-xs font-medium text-gray-600">
-            {company.status.text}
-          </span>
-        </div>
+              <span class="text-xs font-medium text-gray-600">
+                {company.status.text}
+              </span>
+            </div>
+          )
+        }
       </div>
       <div class="flex flex-col gap-3">
         <h1 class="text-balance font-semibold text-2xl">
@@ -65,21 +82,33 @@ const companyInitial = company.name?.trim().slice(0, 1).toUpperCase() || "L";
         </h2>
         <p class="text-sm text-gray-500">{company.longDescription}</p>
       </div>
-      <div class="flex items-center gap-3">
-        <a href={toInternalLink(contact.bookCall.url)}>
-          <Button>
-            {contact.bookCall.text}
-          </Button>
-        </a>
-        <a
-          href={contact.chat.url.startsWith("/") ? toInternalLink(contact.chat.url) : contact.chat.url}
-          target={contact.chat.url.startsWith("/") ? undefined : "_blank"}
-        >
-          <Button variant="outline">
-            {contact.chat.text}
-          </Button>
-        </a>
-      </div>
+      {
+        (showBookCall || showChat) && (
+          <div class="flex items-center gap-3">
+            {
+              showBookCall && (
+                <a href={toInternalLink(contact.bookCall.url)}>
+                  <Button>
+                    {contact.bookCall.text}
+                  </Button>
+                </a>
+              )
+            }
+            {
+              showChat && (
+                <a
+                  href={contact.chat.url.startsWith("/") ? toInternalLink(contact.chat.url) : contact.chat.url}
+                  target={contact.chat.url.startsWith("/") ? undefined : "_blank"}
+                >
+                  <Button variant="outline">
+                    {contact.chat.text}
+                  </Button>
+                </a>
+              )
+            }
+          </div>
+        )
+      }
       <div class="flex flex-col gap-3 w-full">
         {
           experience.map((exp) => (
