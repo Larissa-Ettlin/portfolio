@@ -46,9 +46,9 @@
     "medium": "",
     "figma": "",
     "chat": {
-      "enabled": false,
-      "text": "Chat",
-      "url": ""
+      "enabled": true,
+      "text": "Kontaktieren",
+      "url": "mailto:kontakt.skilled981@passinbox.com "
     },
     "email": "kontakt.skilled981@passinbox.com",
     "linkedin": ""
