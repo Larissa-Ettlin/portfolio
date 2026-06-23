@@ -3,6 +3,7 @@ import { getCollection, render, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/layout-principal.astro";
 import { Image } from "astro:assets";
 import { getAbsoluteUrl, withBasePath } from "@/lib/utils";
+import { isVisibleProject } from "@/lib/projects";
 
 // Helper functions to extract information from content
 function extractTechStack(content: string): string[] {
@@ -88,7 +89,7 @@ function extractGitHubLink(content: string): string | null {
 }
 
 export async function getStaticPaths() {
-  const projects = await getCollection("projects");
+  const projects = await getCollection("projects", isVisibleProject);
   return projects.map((entry) => ({
     params: { id: entry.id },
     props: { entry },
@@ -271,7 +272,7 @@ const companyInitial = company.name?.trim().slice(0, 1).toUpperCase() || "L";
         <h2 class="text-xl font-semibold mb-6">More Projects</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {
-            (await getCollection("projects"))
+            (await getCollection("projects", isVisibleProject))
               .filter((p) => p.id !== entry.id)
               .sort(
                 (a, b) =>
